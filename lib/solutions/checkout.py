@@ -17,6 +17,8 @@ def checkout(skus):
         'D': 15,
     }
     cost = 0
+    if type(skus) != type([]):
+        return -1
     try: # let's see if the string format guess was correct
         for product in skus:
             if product in price_catalogue.keys():
