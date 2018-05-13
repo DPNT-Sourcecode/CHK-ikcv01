@@ -15,6 +15,7 @@ def checkout(skus):
         'B': 30,
         'C': 20,
         'D': 15,
+        'E': 40
     }
     groups = {
         'A': [3, 130],
@@ -32,11 +33,39 @@ def checkout(skus):
             basket[product] += 1
         else:
             return -1
+    offered = basket['E'] / 2 # python 2 integer division
+    if basket['B'] >= offered:
+        basket['B'] - offered
+    else:
+        basket['B'] = 0
     for product, quantity in basket.iteritems():
-        if product in groups.keys():
-            remainder = quantity % groups[product][0]
-            discounted = quantity / groups[product][0] # python 2 integer division
-            cost += discounted * groups[product][1] + remainder * price_catalogue[product]
+        if product == 'A':
+            if quantity >= 5:
+                remainder = quantity % 5
+                discounted = quantity / 5
+                cost += discounted * 130
+            remainder = quantity % 3
+            discounted = quantity / 3
+            cost += discounted * 130 + remainder * 50
+        elif product == 'B':
+            remainder = quantity % 2
+            discounted = quantity / 2
+            cost += discounted * 45 + remainder * 30
         else:
-            cost += price_catalogue[product] * quantity
+            cost += basket[product] * price_catalogue[product]
+
+
+
+    elif product == 'B':
+            remainder = quantity % 2
+            discounted = quantity / 2 # python 2 integer division
+            cost += discounted * 45 + remainder * 30
+        else:
+            cost += quantity * 30
+    elif product == 'A':
+            remainder = quantity % 2
+            discounted = quantity / 2 # python 2 integer division
+            cost += discounted * 45 + remainder * 30
+        else:
+            cost += quantity * 30
     return cost
