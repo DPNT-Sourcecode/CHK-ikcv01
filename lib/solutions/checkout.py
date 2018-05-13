@@ -25,16 +25,19 @@ def checkout(skus):
         'E': 0,
     }
     cost = 0
+
     for product in skus:
         if product in price_catalogue.keys():
             basket[product] += 1
         else:
             return -1
+
     offered = basket['E'] / 2 # python 2 integer division
     if basket['B'] >= offered:
-        basket['B'] - offered
+        basket['B'] -= offered
     else:
         basket['B'] = 0
+
     for product, quantity in basket.iteritems():
         if product == 'A':
             if quantity >= 5:
@@ -50,4 +53,5 @@ def checkout(skus):
             cost += discounted * 45 + remainder * 30
         else:
             cost += basket[product] * price_catalogue[product]
+
     return cost
