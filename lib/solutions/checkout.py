@@ -26,6 +26,7 @@ def checkout(skus):
         'B': 0,
         'C': 0,
         'D': 0,
+        'E': 0,
     }
     cost = 0
     for product in skus:
@@ -53,19 +54,4 @@ def checkout(skus):
             cost += discounted * 45 + remainder * 30
         else:
             cost += basket[product] * price_catalogue[product]
-
-
-
-    elif product == 'B':
-            remainder = quantity % 2
-            discounted = quantity / 2 # python 2 integer division
-            cost += discounted * 45 + remainder * 30
-        else:
-            cost += quantity * 30
-    elif product == 'A':
-            remainder = quantity % 2
-            discounted = quantity / 2 # python 2 integer division
-            cost += discounted * 45 + remainder * 30
-        else:
-            cost += quantity * 30
     return cost
