@@ -34,7 +34,9 @@ def checkout(skus):
             return -1
     for product, quantity in basket.iteritems():
         if product in groups.keys():
-            cost += price_catalogue[product] * quantity
+            remainder = quantity % groups[product][0]
+            discounted = quantity / groups[product][0] # python 2 integer division
+            cost += discounted * groups[product][1] + remainder * price_catalogue[product]
         else:
             cost += price_catalogue[product] * quantity
     return cost
