@@ -44,6 +44,7 @@ def checkout(skus):
                 remainder = quantity % 5
                 discounted = quantity / 5
                 cost += discounted * 200
+                quantity -= (discounted * 5)
             remainder = quantity % 3
             discounted = quantity / 3
             cost += discounted * 130 + remainder * 50
