@@ -10,12 +10,17 @@ def checkout(skus):
     the server tests will reveal the input string's format after the penalty
     I also have no information on the offers for multiple items
     """
-    try: # let's see if the string format guess was correct
-        basket =[]
-        products = skus.split(',') # split products
-        for p in products: # split the quantities
-            name, quantity = p.split('*')
-            basket.append([name, int(quantity)])
-        return basket
-    except:
+    price_catalogue = {
+        'A': 50,
+        'B': 30,
+        'C': 20,
+        'D': 15,
+    }
+    cost = 0
+    # try: # let's see if the string format guess was correct
+    for product in skus:
+        if product in price_catalogue.keys():
+            cost += price_catalogue['product']
+    return cost
+    # except:
         return -1
