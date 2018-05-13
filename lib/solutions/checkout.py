@@ -13,7 +13,7 @@ def checkout(skus):
     try: # let's see if the string format guess was correct
         products = skus.split(',') # split products
         for p in products: # split the quantities
-            name, quantity = p.split('*'))
+            name, quantity = p.split('*')
             basket.append([name, int(quantity)])
         return basket
     except:
