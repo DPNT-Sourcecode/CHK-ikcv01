@@ -17,11 +17,7 @@ def checkout(skus):
         'D': 15,
     }
     cost = 0
-    try: # let's see if the string format guess was correct
-        for product in skus:
-            if product.upper() in price_catalogue.keys():
-                cost += price_catalogue[product.upper()]
-        return cost
-    except:
-        return -1
-    return -1
+    for product in skus:
+        if product.upper() in price_catalogue.keys():
+            cost += price_catalogue[product.upper()]
+    return cost

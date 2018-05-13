@@ -13,7 +13,7 @@ class TestCheckout(unittest.TestCase):
         self.assertEqual(checkout('C'), 20)
         self.assertEqual(checkout('D'), 15)
         self.assertEqual(checkout('Axa'), 100)
-        self.assertEqual(checkout('-'), -1)
+        self.assertEqual(checkout('-'), 0)
 
 if __name__ == '__main__':
     unittest.main()
