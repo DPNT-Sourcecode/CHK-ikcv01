@@ -5,6 +5,8 @@ from lib.solutions.checkout import checkout
 
 class TestCheckout(unittest.TestCase):
     def test_checkoutFormat(self):
+        self.assertEqual(checkout('AAAA'), 180)
+        self.assertEqual(checkout('ABCDABCD'), 230)
         self.assertEqual(checkout(''), 0)
         self.assertEqual(checkout('A'), 50)
         self.assertEqual(checkout('B'), 30)
