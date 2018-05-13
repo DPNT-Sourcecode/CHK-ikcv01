@@ -18,6 +18,8 @@ def checkout(skus):
     }
     cost = 0
     for product in skus:
-        if product.upper() in price_catalogue.keys():
-            cost += price_catalogue[product.upper()]
+        if product in price_catalogue.keys():
+            cost += price_catalogue[product]
+        else:
+            return -1
     return cost
