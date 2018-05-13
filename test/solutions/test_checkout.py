@@ -16,7 +16,7 @@ class TestCheckout(unittest.TestCase):
         self.assertEqual(checkout('-'), -1)
         self.assertEqual(checkout('ABCa'), -1)
         self.assertEqual(checkout('AAAA'), 180)
-        self.assertEqual(checkout('ABCDABCD'), 230)
+        self.assertEqual(checkout('ABCDABCD'), 215)
 
 if __name__ == '__main__':
     unittest.main()
