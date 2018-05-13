@@ -17,10 +17,6 @@ def checkout(skus):
         'D': 15,
         'E': 40
     }
-    groups = {
-        'A': [3, 130],
-        'B': [2, 45],
-    }
     basket = {
         'A': 0,
         'B': 0,
@@ -44,7 +40,7 @@ def checkout(skus):
             if quantity >= 5:
                 remainder = quantity % 5
                 discounted = quantity / 5
-                cost += discounted * 130
+                cost += discounted * 200
             remainder = quantity % 3
             discounted = quantity / 3
             cost += discounted * 130 + remainder * 50
