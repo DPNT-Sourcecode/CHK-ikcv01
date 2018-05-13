@@ -16,10 +16,25 @@ def checkout(skus):
         'C': 20,
         'D': 15,
     }
+    groups = {
+        'A': [3, 130],
+        'B': [2, 45],
+    }
+    basket = {
+        'A': 0,
+        'B': 0,
+        'C': 0,
+        'D': 0,
+    }
     cost = 0
     for product in skus:
         if product in price_catalogue.keys():
-            cost += price_catalogue[product]
+            basket[product] += 1
         else:
             return -1
+    for product, quantity in basket.iteritems():
+        if product in groups.keys():
+            cost += price_catalogue[product] * quantity
+        else:
+            cost += price_catalogue[product] * quantity
     return cost
