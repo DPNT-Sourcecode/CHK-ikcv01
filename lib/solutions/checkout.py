@@ -11,6 +11,7 @@ def checkout(skus):
     I also have no information on the offers for multiple items
     """
     try: # let's see if the string format guess was correct
+        basket =[]
         products = skus.split(',') # split products
         for p in products: # split the quantities
             name, quantity = p.split('*')
